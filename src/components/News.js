@@ -73,14 +73,18 @@ export class News extends Component {
 
             <div className='container my-3'>
                 <h1 className="text-center" style={{margin: '35px 0px'}}>
-                    <h2 style={{color:"white"}}>NewsKing Web - Top Headlines</h2>
+                    <hr color="white"></hr>
+                    <h1 style={{color:"white",fontSize:"50px",fontFamily:"sans-serif"}}>NewsFlash - Top Headlines</h1>
                     {this.state.loading && <Spinner />}
+                    <hr color="white"></hr>
                 </h1>
                 <div className="row">
                     {!this.state.loading && this.state.articles?.map((element) => {
-                        return <div className='col-md-4' key={element.url}>
+                        return(
+                            <div className='col-md-4' key={element.url}>
                             <NewsItem title={element.title?element.title.slice(0,50):""} description={element.description?element.description.slice(0,80):""} imgURL={element.urlToImage} newsUrl={element.url}/>
                         </div>
+                        )
                     })}
 
 
